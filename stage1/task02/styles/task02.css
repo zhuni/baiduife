@@ -1,0 +1,137 @@
+/*reset*/
+*
+{
+    margin: 0;
+    padding: 0;
+}
+a:link
+{
+    text-underline: none;
+}
+ul
+{
+    list-style: none;
+}
+body
+{
+    background-color: #eee;
+    font-family:"Microsoft YaHei", sans-serif;
+}
+/*header*/
+header
+{
+    background-color: black;
+    height: 75px;
+    color: white;
+    /*position: relative;*/
+}
+.wrap
+{
+    width: 1300px;
+    margin: 0 auto;
+}
+
+header .wrap ul
+{
+    float: right;
+    height: 75px;
+    /*position: absolute;*/
+    /*right: 0;*/
+    /*top: 50%;*/
+    /*transform: translateY(-50%);*/
+    /*bottom: 0;*/
+    /*top: 0;*/
+    /*height: 20px;*/
+    /*margin: auto;*/
+    /*float: right;*/
+}
+header ul li
+{
+    float: left;
+    line-height: 75px;
+    /*vertical-align: middle;*/
+}
+article
+{
+    padding: 30px 20px;
+    background-color: white;
+    margin-top: 15px;
+    box-shadow: 2px 2px 2px #999999;
+}
+article h2
+{
+    font-size: 1.4em;
+    padding-bottom: 15px;
+}
+article h3
+{
+    font-size: 1.1em;
+    font-family: sans-serif;
+    padding-bottom: 15px;
+
+}
+article .info
+{
+    padding-bottom: 15px;
+    font-size: 12px;
+}
+article img
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+article ul li
+{
+    text-indent: 2em;
+}
+article figure
+{
+    border: 1px solid #eee;
+    padding: 10px;
+    width: 200px;
+    margin-left: 40px;
+    margin-bottom: 15px;
+}
+article figure figcaption
+{
+    text-align: center;
+}
+article ol
+{
+    text-indent:  2em;
+    font-weight: bold;
+    list-style-position: inside;
+    margin-bottom: 15px;
+}
+article table
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+article table,th,td
+{
+
+    border: 1px solid #999999;
+}
+article thead
+{
+    background-color: black;
+    color: white;
+    text-align: left;
+}
+article tfoot
+{
+    background-color: #999999;
+}
+aside
+{
+    box-shadow: 2px 2px 2px #999;
+    background-color: white;
+    margin-top: 15px;
+    padding: 30px 20px;
+}
+aside h3
+{
+    border-left: 5px solid #eee;
+    padding: 10px;
+}
