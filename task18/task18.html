@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>task18</title>
+    <style type="text/css">
+        input[type="button"]{
+            border:1px solid #ccc;
+            background-color: #fff;
+            transition: all 0.4s ease-in-out;
+        }
+        input[type="button"]:hover{
+            background-color: firebrick;
+            color: #fff;
+        }
+        input[type="text"]:focus{
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            outline:none;
+        }
+        #show tr td
+        {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="scanner"/>
+<input type="button" value="左侧入"  id="li"/>
+<input type="button" value="右侧入" id="ri"/>
+<input type="button" value="左侧出" id="lo"/>
+<input type="button" value="右侧出" id="ro"/>
+<table id="show">
+    <tr></tr>
+</table>
+<script>
+    var arr = [];
+    function addHandler(element,type,handler){
+        if(element.addEventListener){
+            element.addEventListener(type,handler,false);
+        }
+        else if(element.attachEvent){
+            element.attachEvent('on'+type,handler);
+        }
+        else{
+            element['on'+type]=handler;
+        }
+    }
+    function leftIn(){
+        var s = document.getElementById('scanner');
+        arr.unshift(s.value);
+        show(arr);
+        s.value = '';
+
+    }
+    function rightIn(){
+        var s = document.getElementById('scanner');
+        arr.push(s.value);
+        show(arr);
+    }
+    function leftOut(){
+        var s = document.getElementById('scanner');
+        arr.shift(s.value);
+        show(arr);
+    }
+    function rightOut(){
+        var s = document.getElementById('scanner');
+        arr.pop(s.value);
+        show(arr);
+    }
+    function show(arr){
+        var i;
+        var tr = document.getElementById('show').getElementsByTagName('tr')[0];
+        var td;
+        var node= document.createDocumentFragment();
+        for(i=0;i<arr.length;i++){
+            td= document.createElement('td');
+            td.textContent =  arr[i];
+            node.appendChild(td);
+        }
+        tr.appendChild(node);
+    }
+    function init(){
+       var li = document.getElementById('li');
+        var ri = document.getElementById('ri');
+        var lo = document.getElementById('lo');
+        var ro = document.getElementById('ro');
+        addHandler(li,'click',leftIn);
+        addHandler(ri,'click',rightIn);
+        addHandler(lo,'click',leftOut);
+        addHandler(ro,'click',rightOut);
+    }
+    init();
+</script>
+</body>
+</html>
