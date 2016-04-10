@@ -1,0 +1,37 @@
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/*设置html与body的宽高*/
+html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    width: 100%;
+    font:12px "MicrosoftYaHei","微软雅黑","STXihei","华文细黑",serif;
+    background-color: #ffffff;
+}
+
+/*清除浮动*/
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+/*
+如果需要兼容IE6,7，则应按照以下方式清除浮动。使用:before是为了在IE6,7中更好地渲染代码。如果使用了{box-sizing:border-box;}（不兼容IE6，7），那么设置:bofore和zoom也就没有必要了
+.clearfix:before,.clearfix:after {
+    content: "";
+    display: table;
+    }
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    zoom: 1; !*兼容IE6,IE7*!
+}
+*/

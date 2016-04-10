@@ -33,23 +33,57 @@
 * };
 */
 var aqiData = {};
-function getData() {
-    var city = document.getElementById('aqi-city-input');
-
+/**
+* 绑定事件
+*/
+function eventHandle(element,type,handle){
+    if(element.addEventListener){
+        element.addEventListener(type,handle,false);
+    }
+    else if(element.attachEvent){
+        element.attachEvent('on'+type,handle);
+    }
+    else{
+        element['on'+type]=handle;
+    }
 }
 /**
 * 从用户输入中获取数据，向aqiData中增加一条数据
 * 然后渲染aqi-list列表，增加新增的数据
 */
 function addAqiData() {
-
+    var city = document.getElementById('aqi-city-input');
+    var name = city.value.trim();
+    if(!(/^[a-zA-Z\u4e00-\u9fa5]+$/.test(name))){
+        alert('城市名称必须由中文字符和英文字符组成');
+        city.value = '';
+    }
+    var number = document.getElementById('aqi-value-input');
+    var val = number.value.trim();
+    if(!(/^[1-9]\d*$/.test(val))){
+        alert('指数必须是大于0的整数');
+        number.value='';
+    }
+    if(city.value&&number.value){
+        aqiData[name] = val;
+        city.value = '';
+        number.value = '';
+    }
+    console.log(aqiData);
 }
 
 /**
 * 渲染aqi-table表格
 */
 function renderAqiList() {
-
+    var tab = document.getElementById('aqi-table');
+    var tr;
+    for(var i in aqiData)
+    {
+        tr = document.createElement('tr');
+        tr.innerHTML = '<td>'+i+'</td><td>'+aqiData[i]+'</td><td><button>删除</button></td>';
+        tab.appendChild(tr);
+    }
 }
 
 /**
@@ -74,9 +108,14 @@ renderAqiList();
 function init() {
 
 // 在这下面给add-btn绑定一个点击事件，点击时触发addBtnHandle函数
-
+    var btn = document.getElementById('add-btn');
+    eventHandle(btn,'click',addBtnHandle);
 // 想办法给aqi-table中的所有删除按钮绑定事件，触发delBtnHandle函数
-
+    var tab = document.getElementById('aqi-table');
+    var del = tab.getElementsByTagName('button');
+    for(var i=0;i<del.length;i++){
+        eventHandle(del[i],'click',delBtnHandle);
+    }
 }
 
 init();
