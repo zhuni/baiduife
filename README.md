@@ -8,5 +8,5 @@ my personal blog
 
 ## Typescript 
 
-### - [Typescript class](https://github.com/zhuni/blog/issues1)
+### - [Typescript class](https://github.com/zhuni/blog/issues/1)
 
