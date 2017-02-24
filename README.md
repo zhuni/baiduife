@@ -1,2 +1,12 @@
----
-### 百度前端学院的任务
+
+blog
+====
+
+my personal blog
+
+# 鐩綍
+
+## Typescript 
+
+### - [Typescript class](https://github.com/zhuni/blog/issues1)
+
